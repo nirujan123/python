@@ -1,0 +1,12 @@
+#Logarithmic Rate of Return
+from math import log
+
+def display_as_percentage(val):
+  return '{:.1f}%'.format(val * 100)
+
+def calculate_log_return(start_price, end_price):
+  return log(end_price) - log(start_price)
+
+#annualizing
+def annualize_return(log_return, t):
+  return log_return * t
