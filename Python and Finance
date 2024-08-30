@@ -119,3 +119,24 @@ plt.ylabel('Expected Returns',fontsize=14)
 plt.xlabel('Volatility (Std. Deviation)',fontsize=14)
 plt.title('Efficient Frontier', fontsize=24)
 plt.show()
+
+
+
+
+#Pearson Correlation Coefficient
+def calculate_correlation(set_x, set_y):
+  sum_x = sum(set_x)
+  sum_y = sum(set_y)
+
+  sum_x2 = sum([x ** 2 for x in set_x])
+
+  sum_y2 = 0
+  for y in set_y:
+    sum_y2 += y ** 2
+  sum_xy = 0
+  for i in range(len(set_x)):
+    sum_xy += set_x[i] * set_y[i]
+ n = len(set_x)
+  numerator = n * sum_xy - sum_x * sum_y
+  denominator = sqrt((n * sum_x2 - sum_x ** 2) * (n * sum_y2 - sum_y ** 2))
+  return numerator / denominator
